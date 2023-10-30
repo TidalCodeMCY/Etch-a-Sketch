@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Etch-a-Sketch</h1>
+    </header>
+    <main>
+        <h2>Canvas</h2>
+        <p class="below">Draw Below</p>
+        <div class="sketchcontainer">
+
+        </div>
+        <ul>
+            <div>
+                <h3>Colors Available</h3>
+                <li>Any browser color as well as hash codes most should work.</li>
+                <li>An example would be like red,black,yellow any of those or you could do #181818 for black or more!
+                </li>
+            </div>
+            <div>
+                <h4>Choose Size!</h4>
+                <li>To do this enter a value like 8,8 would be a 8x8 or 128,128 should be a 128x128 pixel square.</li>
+                <li>Make sure the numbers match if they dont will error you.</li>
+            </div>
+        </ul>
+        <form action="">
+            <label for="color" class="c">Color</label>
+            <input type="text" name="color" placeholder="Color or #Code" class="colorchoice" required>
+            <label for="size" class="s">Choose Size of Cavas</label>
+            <input type="text" name="size" placeholder="Height, Width" class="sizechoice" required>
+            <input type="submit" class="submit-btn">
+            <span class="error"></span>
+        </form>
+    </main>
+    <footer>
+        <p>Made by Mason Yates</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
