@@ -3,6 +3,11 @@ function userChoices(){
     const color = document.querySelector('.colorchoice');
     const sizesplit = size.value.split(',');
 
+    if(color.value === '' && sizesplit[0] &&sizesplit[1]){
+        makeCanvas(sizesplit[0],sizesplit[1]);
+        return;
+    }
+
     if(color.value === '') {
         const errorCode = document.querySelector('.error');
         errorCode.textContent = 'Please enter a valid color!';
@@ -10,8 +15,16 @@ function userChoices(){
         return null;
     }
 
-    draw(color.value);
-    makeCanvas(sizesplit[0],sizesplit[1]);
+    if(!sizesplit[1]){
+        draw(color.value);
+        return;
+    }
+
+    if(sizesplit[0] &&sizesplit[1]){
+        draw(color.value);
+        makeCanvas(sizesplit[0],sizesplit[1]);  
+    }
+    
 }
 
 (function eventListen(){
@@ -19,12 +32,13 @@ function userChoices(){
 
     submit.addEventListener('click', (e) => {
         e.preventDefault();
-        resetBoard();
         userChoices();
+        resetForm();
     })
 })();
 
 function makeCanvas(val1,val2) {
+    resetBoard();
     const container = document.querySelector('.sketchcontainer');
     const Canvas = document.querySelector('.sketchcontainer');
     Canvas.style.gridTemplateColumns = `repeat(${val1},auto)`;
@@ -78,4 +92,13 @@ function resetBoard() {
         return;
     }
 }
+
+function resetForm() {
+    const color = document.querySelector('.colorchoice');
+    const size = document.querySelector('.sizechoice');
+    
+    color.value = '';
+    size.value = '';
+}
+
 makeCanvas(16,16);
